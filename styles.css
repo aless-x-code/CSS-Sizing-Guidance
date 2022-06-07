@@ -1,0 +1,64 @@
+/*
+
+___________________PROBLEM________________________
+-There are very small screen, and very wide screens
+-The problem with using relative measurements like viewport, or %, is that on very very big screens, the image might display VERY VERY big, which is not good
+-The problem with pixels, or rem, (as in 16px font, the 2rem is always going to be 32px) is that they are responsive
+
+___________________Sizing units____________________
+px (pixels)=
+vh (viewport height)=
+vw (viewport width)=
+rem (root em)=
+em (parent em)=
+auto= automatic
+% =
+ch=
+___________________FONT SIZE_______________________
+-Font size is pretty crucial, it will affect all your text, and ALL your elements that use REM / EM
+-The default is 16px, but some users CHANGE their preference to the more or less
+-If you set the root font size, or give font size as px, you will look in /override their preference, not good!
+-SO, don't change the root font using pixels, you can do so using percetnages, like :root: 62.5%, which will be 10px for you, and the default. And subsequencially use rem units 
+
+SUBNOTE____________
+ch, what is ch?
+-ch is the approximate width of the character "0" of the set font
+-For example, setting width to 60ch will tell text to not go over 60 "0" characters per line
+-Visually, you should not go over 60ch per line, for asthetics 
+
+
+___________________MEDIA QUERIES_______________________
+-According to this article, https://zellwk.com/blog/media-query-units/, you should use "em" for media queries, based on a series of experiment and web browsers.
+
+
+___________________SOLUTION_______________________
+-So, what can we do? We can do use the blueprint=
+
+Width=
+min-width=
+max-width=
+
+height=
+min-height=
+max-height=
+
+This will get all our bases covered, ideal size, but a min and a max
+
+Example
+We have a cover image on page landing
+We want it to ideally be 50vh, not smaller than 300px, and not bigger than 2000px
+width= 50vh / 50% 
+((******make sure you alway set the widht/height, this will tell CSS what is the prefer, if you only give min/max, it will become auto and not what you wanted******))
+min-width= 300px
+max-width= 2000px
+
+*/
+
+:root {
+  font-size: 62.5%;
+}
+
+.box1 {
+  font-size: 2rem;
+  width: 60ch;
+}
